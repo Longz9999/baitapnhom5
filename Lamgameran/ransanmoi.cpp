@@ -40,7 +40,7 @@ int main()
 	while (gameover == false)
 	{
 		//system("cls");
-		//
+		
 		xoa_du_lieu_cu(toadox, toadoy);
 		
 		//========= dieu khien
