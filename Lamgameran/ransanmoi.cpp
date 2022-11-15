@@ -35,17 +35,14 @@ int main()
 	int xqua = 0, yqua = 0;
 	//tao qua
 	tao_qua(xqua, yqua, toadox, toadoy);
-	int x = 50, y = 13;// dinh hinh vi tri can di chuyen cho ran
+	int x = 50, y = 13;
 	int check = 2;
 	while (gameover == false)
 	{
 		//system("cls");
-		//========= backspace
+		//
 		xoa_du_lieu_cu(toadox, toadoy);
-		// 0 : di xuong
-		//1: di len
-		//2: qua phai
-		//3: trai
+		
 		//========= dieu khien
 		if (_kbhit())
 		{
