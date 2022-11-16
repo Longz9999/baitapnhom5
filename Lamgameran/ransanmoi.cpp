@@ -1,20 +1,23 @@
-#include <iostream>
+﻿#include <iostream>
 #include "libsnake.h"
 #define MAX 100
 using namespace std;
 int sl = 7;
 //================ khu vuc khai bao nguyen mau ham ============
+//huy
 void ve_tuong_tren();
 void ve_tuong_duoi();
 void ve_tuong_phai();
 void ve_tuong_duoi();
 void ve_tuong();
+//đức anh
 void khoi_tao_ran(int toadox[], int toadoy[]);
 void xoa_du_lieu_cu(int toadox[], int toadoy[]);
 void ve_ran(int toadox[], int toadoy[]);
 void xu_ly_ran(int toadox[], int toadoy[], int x, int y, int& xqua, int& yqua);
 void them(int a[], int x);
 void xoa(int a[], int vt);
+//long
 bool kt_ran_cham_tuong(int x0, int y0);
 bool kt_ran_cham_duoi(int toadox[], int toadoy[]);
 bool kt_ran(int toadox[], int toadoy[]);
@@ -182,12 +185,12 @@ void xoa_du_lieu_cu(int toadox[], int toadoy[])
 }
 void xu_ly_ran(int toadox[], int toadoy[], int x, int y, int& xqua, int& yqua)
 {
-	//b1: them toa do moi vao dau mang
+	// them toa do moi vao dau mang
 	them(toadox, x);
 	them(toadoy, y);
 	if (kt_ran_an_qua(xqua, yqua, toadox[0], toadoy[0]) == false)
 	{
-		//b2: xoa toa do cuoi mang
+		// xoa toa do cuoi mang
 		xoa(toadox, sl - 1);
 		xoa(toadoy, sl - 1);
 
@@ -196,7 +199,7 @@ void xu_ly_ran(int toadox[], int toadoy[], int x, int y, int& xqua, int& yqua)
 	{
 		tao_qua(xqua, yqua, toadox, toadoy);
 	}
-	//b3: ve ran
+	
 	ve_ran(toadox, toadoy);
 }
 void them(int a[], int x)
@@ -221,17 +224,17 @@ bool kt_ran_cham_tuong(int x0, int y0)
 	//ran cham tuong tren
 	if (y0 == 1 && (x0 >= 10 && x0 <= 100))
 	{
-		return true;//gameover
+		return true;
 	}
 	//ran cham tuong duoi
 	else if (y0 == 26 && (x0 >= 10 && x0 <= 100))
 	{
-		return true;//gameover
+		return true;
 	}
 	//ran cham tuong phai
 	else if (x0 == 100 && (y0 >= 1 && y0 <= 26))
 	{
-		return true;//gameover
+		return true;
 	}
 	//ran cham tuong trai
 	else if (x0 == 10 && (y0 >= 1 && y0 <= 26))
@@ -246,18 +249,18 @@ bool kt_ran_cham_duoi(int toadox[], int toadoy[])
 	{
 		if ((toadox[0] == toadox[i]) && (toadoy[0] == toadoy[i]))
 		{
-			return true;//gameover
+			return true;
 		}
 	}
 	return false;
 }
 bool kt_ran(int toadox[], int toadoy[])
 {
-	bool kt1 = kt_ran_cham_duoi(toadox, toadoy);//gameover = true
-	bool kt2 = kt_ran_cham_tuong(toadox[0], toadoy[0]);//gameover = false
+	bool kt1 = kt_ran_cham_duoi(toadox, toadoy);
+	bool kt2 = kt_ran_cham_tuong(toadox[0], toadoy[0]);//
 	if (kt1 == true || kt2 == true)
 	{
-		return true;//gameover
+		return true;
 	}
 	return false;
 }
@@ -265,16 +268,16 @@ void tao_qua(int& xqua, int& yqua, int toadox[], int toadoy[])
 {
 	do
 	{
-		//11 <= xqua <= 99
+		
 		xqua = rand() % (99 - 11 + 1) + 11;
-		//2 <= yqua <= 25
+		
 		yqua = rand() % (25 - 2 + 1) + 2;
 	} while (kt_ran_de_qua(xqua, yqua, toadox, toadoy) == true);
 	int i = rand() % (15 - 1 + 1) + 1;
 	SetColor(i);
 	gotoXY(xqua, yqua);
 	cout << char(3);
-	SetColor(7);//mau trang
+	SetColor(7);
 }
 bool kt_ran_de_qua(int xqua, int yqua, int toadox[], int toadoy[])
 {
